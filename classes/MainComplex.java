@@ -48,7 +48,7 @@ class Complex {
 }
 
 // Main class to test the Complex class
-public class Main {
+public class MainComplex {
     public static void main(String[] args) {
         // Creating two complex numbers
         Complex num1 = new Complex(3.5, 2.5); // 3.5 + 2.5i

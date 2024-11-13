@@ -1,20 +1,16 @@
-// Rational class for performing arithmetic with fractions
 class Rational {
-    // Private fields for numerator and denominator
     private int numerator;
     private int denominator;
 
-    // Constructor to initialize a rational number in reduced form
     public Rational(int numerator, int denominator) {
         if (denominator == 0) {
-            throw new IllegalArgumentException("Denominator cannot be zero.");
+            throw new IllegalArgumentException("Denominator cannot be 0");
         }
         int gcd = gcd(numerator, denominator);
         this.numerator = numerator / gcd;
         this.denominator = denominator / gcd;
     }
 
-    // Method to compute the greatest common divisor (GCD)
     private int gcd(int a, int b) {
         while (b != 0) {
             int temp = b;
@@ -24,49 +20,42 @@ class Rational {
         return a;
     }
 
-    // Addition of two rational numbers
     public Rational add(Rational other) {
         int newNumerator = (this.numerator * other.denominator) + (other.numerator * this.denominator);
         int newDenominator = this.denominator * other.denominator;
         return new Rational(newNumerator, newDenominator);
     }
 
-    // Subtraction of two rational numbers
     public Rational subtract(Rational other) {
         int newNumerator = (this.numerator * other.denominator) - (other.numerator * this.denominator);
         int newDenominator = this.denominator * other.denominator;
         return new Rational(newNumerator, newDenominator);
     }
 
-    // Multiplication of two rational numbers
     public Rational multiply(Rational other) {
         int newNumerator = this.numerator * other.numerator;
         int newDenominator = this.denominator * other.denominator;
         return new Rational(newNumerator, newDenominator);
     }
 
-    // Division of two rational numbers
     public Rational divide(Rational other) {
-        if (other.numerator == 0) {
-            throw new IllegalArgumentException("Cannot divide by zero.");
+        if (other.denominator == 0) {
+            throw new IllegalArgumentException("Cannot divide by 0");
         }
         int newNumerator = this.numerator * other.denominator;
         int newDenominator = this.denominator * other.numerator;
         return new Rational(newNumerator, newDenominator);
     }
 
-    // Method to print the rational number in a/b form
     public void print() {
         System.out.println(numerator + "/" + denominator);
     }
 
-    // Method to print the rational number in floating-point format
     public void printAsFloat() {
         System.out.println((double) numerator / denominator);
     }
 }
 
-// Main class to test the Rational class
 public class MainRartional {
     public static void main(String[] args) {
         // Creating two rational numbers

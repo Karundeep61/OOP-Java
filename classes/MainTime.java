@@ -72,7 +72,7 @@ class Time {
 }
 
 // Define the Main class to test the Time class
-public class Main {
+public class MainTime {
     public static void main(String[] args) {
         // Create an object of Time class
         Time time = new Time();
